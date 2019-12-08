@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CvController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .img-fluid{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+</style>
+
+
+
+<div class="toto"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://drive.google.com/file/d/1lPpfqJRMqx2tVOCL-51FQqvNPFkkkPvi/view" target="_blank">Mon_Cv</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://sciences.edu.umontpellier.fr/" target="_blank">fds montpellier</a>
+      </li>
+    </ul>
+    <a href="#">  <a href="https://www.indeed.fr/" style="color:#FF0000" ; target="_blank"> Emplois : Info Recrutement... </a></a>
+  </div>
+</nav>
+
+<hr>
+<div class="container" style= "border-style: dotted;" >
+         <div class="row">
+            <div class="col-md-4">
+                <div class="imgAbt">
+                    <br>
+                        <img src="https://media.licdn.com/dms/image/C4D03AQFHNJuWHK2dfw/profile-displayphoto-shrink_100_100/0?e=1580947200&v=beta&t=6R2Ayi0EAvLUYwP5F0Y1x_SfcvsDjWogB6yRnHAMjSY" alt="A.H">
+                </div>
+            </div>
+        <div class="col-md-8">
+            <p><h1>About me ^^'</h1>
+            Bonjour ! Je m’appelle Ahmed Hajjaj, je suis originaire de Maroc,où j’ai fait mes études en sciences 
+physiques, acctuellement je suis Master 2 IPS, J'aimerais me former au métier de développeur web, parmi
+les technologies que j'ai appris dans cette formation : Java EE, Spring, Hibernate, Python, JavaScript, 
+PHP, Symfony, Angular, NodeJS, SQL, SQLite.</p>
+        </div>
+    </div>
+</div>
+</div>
+</br>
+<div class="container">
+    <div class="row">
+            <table class="table table-bordered" style="width:20%; margin-left: 60px;;">
+                <thead>
+                    <tr class="table-info">
+                        <th>My Hobbies :</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hobbie in hobbie %}
+                    <tr>
+                        <th style="text-align: center;">{{hobbie.hobbie}}</th>      
+                    </tr>
+                    {% endfor %} 
+                    <tr>
+                        <th style="text-align: center; background-color:#FFFFE0;">New hobbie :<a href="{{path('hobbie_add')}}"> Clique ici</a></th>   
+                    </tr>
+                </tbody>
+            </table>
+
+        <div class="col-xs-6col-md-6 col-md-offset-3 panel"  style="  padding-left: 30%;">
+
+            <div class="row">
+               <div style ="height:30vh;width:450px;border: 1px solid silver; padding-left:10px;" class="row align-items-center"> 
+                    <h6> Mes projets: Technologies avancées du web:</h6>
+                    <div class"card-body mt-2 rounded" >
+
+                        {% for projet in projet %}
+                        <div class="media">
+                        <div class="media-body">
+                        <h6 class="mt-0">
+                            <a href="{{path('projet_show', {'id':projet.id})}}">{{projet.nomprojet}}</a>
+                        </h6>
+                        </div>
+                        </div>
+                        {% endfor %}   
+                        <div class"card-body mt-2 rounded">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row justify-content-start">
+  <div class="col-4">
+    <ul>
+        Mes réseaux sociaux :
+        <li><a href="https://www.linkedin.com/in/ahmed-hajjaj-b58927159/" target="_blank"> LinkedIn</a></li>
+        <li><a href="https://www.viadeo.com/p/0021ueb9pq2z6ouj" target="_blank"> Viadeo</a></li>
+    </ul>
+    </div>
+  <div class="col-4"  id="lol">
+    <ul>
+        Contact / Mes Liens :
+        <li>06 16 38 22 56</li>
+        <li>ahmedhajjaj25@gmail.com</li>
+    </ul>
+    </div>
+    <div class="col-4">
+    <ul>
+        Liens utiles de Sympfony:
+        <li><a href="https://mypads.framapad.org/mypads/?/mypads/group/session-cours-2mczr7m0/pad/view/montpellier-m2-ips-2019-b9cafd0ad5-iud0r79z" target="_blank"> Pad montpellier-m2-ips-2019</a></li>
+        <li><a href="https://symfony.com/" target="_blank"> Site officiel de Symfony</a></li>
+    </ul>
+    </div>
+{% endblock %}

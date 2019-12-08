@@ -1,0 +1,24 @@
+.toto {
+    height: 200px;
+    background-image: url("http://cfecgc-santesocial.fr/contenu/uploads/SNCActionsR%C3%A9gion-Montpellier-Photo-Place.jpg");
+}
+.col-md-8{
+    background-color:#FFFFF0;
+}
+
+@media screen and (max-width: 900px) {
+    .toto {
+      display: none;
+    }
+
+    .col-md-8{
+        background-color: aquamarine;
+    }
+    #lol {
+        display: none;
+    }
+    
+}
+.table-info {
+    width: 100px;
+}

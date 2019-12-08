@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block title %}{{projet.nomprojet}}{% endblock %}
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://drive.google.com/file/d/1lPpfqJRMqx2tVOCL-51FQqvNPFkkkPvi/view" target="_blank">Mon_Cv</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://sciences.edu.umontpellier.fr/" target="_blank">fds montpellier</a>
+      </li>
+    </ul>
+    <a href="#">  <a href="https://www.indeed.fr/" style="color:#FF0000" ; target="_blank"> Emplois : Info Recrutement... </a></a>
+  </div>
+</nav>
+
+    <div class="container">
+        <div class="row mt4 ">
+            <div class="col-6 mx-auto">
+                <div class"card bg-light rounded">
+                    <h3 class="card-title text-default p4">
+                            {{projet.nomprojet}}
+                    </h3></br>
+                    <div class"card-body mt-2 rounded">
+                        <div class="media">
+                                <div class="media-body">
+                                <h5 class="text-left"> Description du projet: <h5>
+                                 <blockquote  class="lead text-left" style="background-color: rgba(255, 255, 128, .5); ">
+                                {{projet.description}}
+                                 </blockquote>
+                                <h5 class="mt-0">{{projet.liengithub}}
+                                <a href="https://github.com/ahajjaj?tab=repositories" target="_blank">Clique ici</a>
+                                <h5>
+                                </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
