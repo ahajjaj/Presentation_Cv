@@ -14,14 +14,6 @@ composer require --dev symfony/maker-bundle
 Configurez vos paramètres de connexion, Doctrine peut créer la db_name base de données pour vous:
 php bin/console doctrine:database:create
 
-Utiliser la make:entity commande pour créer cette classe et tous les champs dont vous avez besoin.
-
-Migrations: création des tables / schémas de base de données :
-
- php bin/console make:migration
- php bin/console doctrine:migrations:migrate
-
-
 Et ensuite pour travailler :
 
 ./bin/console s:r ou ./bin/console server:run, démarre un serveur web local de développement
