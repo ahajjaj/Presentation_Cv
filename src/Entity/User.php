@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -17,16 +19,6 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=180, nullable=true)
-     */
-    private $firstName;
-
-        /**
-     * @ORM\Column(type="string", length=180, nullable=true)
-     */
-    private $lastName;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -44,17 +36,10 @@ class User implements UserInterface
      */
     private $password;
 
-    public $confirm_password; 
-
     /**
-    *@ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="user")
-    */
-    private $projects;
-
-    /**
-    *@ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user")
-    */
-    private $tasks;
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
 
     public function getId(): ?int
     {
@@ -135,5 +120,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }

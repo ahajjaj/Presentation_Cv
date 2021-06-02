@@ -28,7 +28,7 @@ class Comment
     private $date;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="comments")
      */
     private $user;
 
