@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProjetRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
  */
 class Project
 {
@@ -22,7 +22,12 @@ class Project
     /**
      * @ORM\Column(type="string", length=250, nullable=true)
      */
-    private $Nom_Projet;
+    private $name;
+
+    /**
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     /**
      * @var DateTime $created
@@ -55,18 +60,6 @@ class Project
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNomProjet(): ?string
-    {
-        return $this->Nom_Projet;
-    }
-
-    public function setNomProjet(?string $Nom_Projet): self
-    {
-        $this->Nom_Projet = $Nom_Projet;
-
-        return $this;
     }
 
     public function getCreatedAt() :?DateTime
@@ -137,6 +130,66 @@ class Project
                 $task->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+    <h1>project</h1>
+    <table class="table table-sm">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ project.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ project.description }}</td>
+            </tr>
+            <tr>
+                <th>Created the</th>
+                <td>{% if project.createdAt %}{{ project.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ user.projectName }}</td>
+            </tr>
+        </tbody>
+    </table><br>
+
+{% if is_granted('ROLE_ADMIN') %}
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete this project">
+            {{ form_end(delete_form) }}
+
+            <a href="{{ path('project_edit', { 'id': project.id }) }}"><button>Edit this project</button></a>
+
+{% endif %}
+
+
+        {% include 'message/show.html.twig' %}
+
+        {% include 'message/new.html.twig' %}
+
+
+    <br><br>
+    <a href="{{ path('project_index') }}"><button>Back to the list</button></a>
+   </div>
+</div>
+
+{% endblock %}

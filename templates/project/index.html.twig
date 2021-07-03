@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <h1>Liste des projets</h1>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th>Nom du projet</th>
+                        <th>Description</th>
+                        <th>Date de création</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for project in projects %}
+                            <tr>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.description}}</td>
+                                <td>{{ project.createdAt|date('Y-m-d H:i:s') }}</td>
+                                         <td>
+                                    <a href="{{ path('project_show', { 'id': project.id }) }}"><button>show</button></a>
+                                    {% if is_granted('ROLE_ADMIN') %}
+
+                                        <a href="{{ path('project_show', { 'id': project.id }) }}"><button>edit</button></a>
+
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('add_project') }}"><button>Ajouter un nouveau projet</button></a>
+        </div>
+    </div>
+{% endblock %}

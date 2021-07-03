@@ -1,7 +1,19 @@
 {% extends 'base.html.twig' %}
+{% block title %} {{ parent() }} Bienvenue {% endblock title %}
 
-{% block title %}Hello CvController!{% endblock %}
+{% block body  %}
+<main role="main" class="container">
+    <div class="starter-template">
+        <div class="row">
+            <h1>Salut {{ prenom }}</h1>
+            <div class="col-sm-12">
+                <img src="img/accueilPic.jpg" width="50%" alt="">
+                <p class="lead">Apprenez à coder avec des vrais projets.</p>
+                <a class="btn btn-dark" href="#">Participer à un projet existant</a>
+                <a class="btn btn-outline-dark" href="">Créer un projet</a>
+            </div>
 
-{% block body %}
-<h1> title mkihfuiof el h </h1>
+        </div>
+    </div>
+</main><!-- /.container -->
 {% endblock %}

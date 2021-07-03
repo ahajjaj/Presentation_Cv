@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>comment</h1>
+    <table>
+        <tbody>
+        {% for i in comment %}
+    <hr>
+          <span>{{ i.comment }}</span>
+            <br>
+            <span>Posted the {{ i.created |date('Y-m-d H:i:s')}} by {{ i.user }}</span>
+
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <a href="{{ path('comment_edit', { 'id': i.id }) }}">&nbsp&nbsp&nbsp<button>edit</button></a>
+
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table><br>
+{% endblock %}

@@ -2,9 +2,9 @@
 
 namespace App\Repository;
 
-use App\Entity\Projet;
+use App\Entity\Project;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
 
 /**
  * @method Projet|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,11 +12,11 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Projet[]    findAll()
  * @method Projet[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProjetRepository extends ServiceEntityRepository
+class ProjectRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(PersistenceManagerRegistry $registry)
     {
-        parent::__construct($registry, Projet::class);
+        parent::__construct($registry, Project::class);
     }
 
     // /**

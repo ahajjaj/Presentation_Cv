@@ -21,6 +21,11 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=250, nullable=true)
+     */
+    private $projectName;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -130,6 +135,26 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of projectName
+     */ 
+    public function getProjectName()
+    {
+        return $this->projectName;
+    }
+
+    /**
+     * Set the value of projectName
+     *
+     * @return  self
+     */ 
+    public function setProjectName($projectName)
+    {
+        $this->projectName = $projectName;
 
         return $this;
     }

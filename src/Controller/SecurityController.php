@@ -32,10 +32,10 @@ class SecurityController extends AbstractController
     /**
      * @Route("/inscription", name="security_registration")
      */
-    public function registration(Request $request, EntityManagerInterface $manager,UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer)
+/*     public function registration(Request $request, EntityManagerInterface $manager,UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer)
     {
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -45,25 +45,14 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush(); 
-            $signatureComponents = $this->verifyEmailHelper->generateSignature(
-                'registration_confirmation_route',
-                $user->getId(),
-                $user->getEmail()
-            );
-        
-            $email = new TemplatedEmail();
-            $email->to($user->getEmail());
-            $email->htmlTemplate('registration/confirmation_email.html.twig');
-            $email->context(['signedUrl' => $signatureComponents->getSignedUrl()]);
-            
-            $this->mailer->send($email);
+
         }
 
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView()
         ]);
     }
-
+ */
     /**
      * @Route("/connexion", name="security_login")
      */
